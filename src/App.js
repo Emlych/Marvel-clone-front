@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
+import Header from "./Components/Header";
+import axios from "axios";
 
 function App() {
+  const [data, setdata] = useState();
+  const [isLoading, setisLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://marvel-eld-back.herokuapp.com/comics"
+        );
+        console.log("response ==>", response.data);
+        setdata(response.data);
+        setisLoading(false);
+      } catch (error) {
+        console.log("error ==>", error.message);
+      }
+    };
+    fetchData();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      {isLoading ? <span>En cours de chargement...</span> : <div>{data}</div>}
     </div>
   );
 }
