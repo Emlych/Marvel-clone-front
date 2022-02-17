@@ -1,31 +1,23 @@
 import "./App.css";
-import { useState, useEffect } from "react";
 import Header from "./Components/Header";
-import axios from "axios";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Comics from "./Pages/Comics";
+import ComicsPerPerson from "./Pages/ComicsPerPerson";
+import Characters from "./Pages/Characters";
+import Favoris from "./Pages/Favoris";
 
 function App() {
-  const [data, setdata] = useState();
-  const [isLoading, setisLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://marvel-eld-back.herokuapp.com/comics"
-        );
-        console.log("response ==>", response.data);
-        setdata(response.data);
-        setisLoading(false);
-      } catch (error) {
-        console.log("error ==>", error.message);
-      }
-    };
-    fetchData();
-  }, []);
   return (
     <div className="app">
-      <Header />
-      {isLoading ? <span>En cours de chargement...</span> : <div>{data}</div>}
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/comics" element={<Comics />} />
+          <Route path="/characters" element={<Characters />} />
+          <Route path="/characters/:id" element={<ComicsPerPerson />} />
+          <Route path="/favoris" element={<Favoris />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

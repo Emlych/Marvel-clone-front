@@ -1,8 +1,98 @@
+/* General */
+:root {
+  --marvelRed: #ec1d24;
+  --backgroundDark: #202020;
+  --fontColor: #fefefe;
+}
+
+.header,
+.comics {
+  background-color: var(--backgroundDark);
+  color: var(--fontColor);
+}
+.img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+/* Font size */
+.description {
+  font-size: 12px;
+}
+
+/* SPECIFIC */
+
+/* Header */
+.header__top,
+.header__bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 25px;
+  border-bottom: solid 1px var(--fontColor);
+}
+.header__top img {
+  width: 100px;
+}
+.flexOne {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search {
+  position: relative;
+}
+.fa-magnifying-glass {
+  position: absolute;
+  bottom: 5px;
+  left: 15px;
+  color: var(--backgroundDark);
+}
+.search input {
+  padding: 5px;
+}
+
+/* Card */
+.card {
+  width: 230px;
+  padding: 27px 18px;
+  margin: 25px;
+  border-radius: 5px;
+  background-color: var(--fontColor);
+  color: var(--backgroundDark);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+.title {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--backgroundDark);
+}
+.card img {
+  width: 150px;
+  border-radius: 5px;
+}
+.description {
+  width: 80%;
+  text-align: left;
+}
+.comics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.header__bottom a {
+  text-decoration: none;
+  color: var(--fontColor);
+  font-size: 14px;
+}
 @media (min-width: 1024px) {
-  .header {
-    display: flex;
-  }
 }
 @media (max-width: 1023px) {
-  /* CSS */
 }
