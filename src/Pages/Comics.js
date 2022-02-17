@@ -29,12 +29,17 @@ const Comics = () => {
           {data.results.map((item, index) => {
             return (
               <div className="card" key={index}>
-                <div className="title">{item.title}</div>
                 <img
                   src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
                   alt="card of comic"
                 />
-                <div className="description">{item.description}</div>
+                <div className="infos">
+                  <div className="title">{item.title}</div>
+
+                  <div className="description">
+                    {item.description ? item.description : "no description"}
+                  </div>
+                </div>
               </div>
             );
           })}

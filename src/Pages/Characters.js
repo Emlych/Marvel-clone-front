@@ -33,13 +33,17 @@ const Characters = () => {
           {charactersData.map((item, index) => {
             return (
               <Link to={`/characters/${item._id}`} key={item._id}>
-                <div className="card">
-                  <div className="title">{item.name}</div>
+                <div className="character__card">
                   <img
                     src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
                     alt="card of comic"
                   />
-                  <div className="description">{item.description}</div>
+                  <div className="character__info">
+                    <div className="character--title">{item.name}</div>
+                    <div className="character--description">
+                      {item.description}
+                    </div>
+                  </div>
                 </div>
               </Link>
             );

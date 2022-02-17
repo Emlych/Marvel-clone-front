@@ -28,9 +28,9 @@ const ComicsPerPerson = () => {
         <span>En cours de chargement...</span>
       ) : (
         <div className="comics">
-          {/* <div>{characterData.name}</div>
+          <div>{characterData.name}</div>
 
-          <img
+          {/* <img
             src={`${characterData.thumbnail.path}.${characterData.thumbnail.extension}`}
             alt={characterData.name}
           /> */}
