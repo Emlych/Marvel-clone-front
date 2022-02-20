@@ -4,9 +4,8 @@ import { useParams } from "react-router-dom";
 
 const ComicsPerPerson = () => {
   const { id } = useParams();
-
-  const [characterData, setCharacterData] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [characterData, setCharacterData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,23 +29,19 @@ const ComicsPerPerson = () => {
         <div className="comics">
           <div>{characterData.name}</div>
 
-          {/* <img
+          <img
             src={`${characterData.thumbnail.path}.${characterData.thumbnail.extension}`}
             alt={characterData.name}
-          /> */}
+          />
           <div className="comics">
-            {/* {characterComics.map((item, index) => {
+            {characterData.comics.length} Comics :
+            {characterData.comics.map((item, index) => {
               return (
-                <div className="card" key={item._id}>
-                  {item.title}
-                  <img
-                    src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
-                    alt="card of comic"
-                  />
-                  {item.description}
+                <div key={item._id}>
+                  <div>{item.title}</div>
                 </div>
               );
-            })} */}
+            })}
           </div>
         </div>
       )}

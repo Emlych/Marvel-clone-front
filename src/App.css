@@ -4,7 +4,7 @@
   --backgroundDark: #202020;
   --fontColor: #fefefe;
   --CBtransition: cubic-bezier(0.17, 0.67, 0.5, 1.03);
-  --cardHeight: 300px;
+  --cardHeight: 400px;
 }
 
 .header,
@@ -45,14 +45,14 @@
 .search {
   position: relative;
 }
-.fa-magnifying-glass {
+.search .fa-magnifying-glass {
   position: absolute;
-  bottom: 5px;
-  left: 15px;
-  color: var(--backgroundDark);
+  bottom: 6px;
+  left: 50px;
+  color: var(--marvelRed);
 }
 .search input {
-  padding: 5px;
+  padding: 5px 10px;
 }
 .comics {
   display: flex;
@@ -118,6 +118,29 @@
   border-top-right-radius: 10px;
   height: calc(var(--cardHeight)-20px);
 }
+
+.like {
+  z-index: 99;
+  font-size: 20px;
+  padding: 5px 7px;
+  border-radius: 25px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+}
+.like:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.fav {
+  color: var(--fontColor);
+  background-color: var(--marvelRed);
+}
+.nofav {
+  color: var(--marvelRed);
+  background-color: var(--fontColor);
+}
 /* characters */
 .character__card {
   width: 200px;
@@ -166,6 +189,12 @@
   height: calc(var(--cardHeight)-20px);
 }
 
+/* .card__container {
+  position: relative;
+}
+.card__container like {
+  position: absolute;
+} */
 @media (min-width: 1024px) {
 }
 @media (max-width: 1023px) {
