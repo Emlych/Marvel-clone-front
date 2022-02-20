@@ -15,7 +15,8 @@ const Characters = ({ searchCharacter }) => {
       try {
         const skip = limit * (page - 1);
         const response = await axios.get(
-          `http://localhost:4000/characters?limit=${limit}&skip=${skip}&name=${searchCharacter}`
+          // `http://localhost:4000/characters?limit=${limit}&skip=${skip}&name=${searchCharacter}`
+          `https://marvel-eld-back.herokuapp.com/characters?limit=${limit}&skip=${skip}&name=${searchCharacter}`
         );
         console.log("response data for personnages ==>", response.data);
         setData(response.data);

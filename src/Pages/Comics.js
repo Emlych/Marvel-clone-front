@@ -31,11 +31,15 @@ const Comics = ({ searchComic }) => {
   //Add favorite comic to database
   const addFavorite = async (id, favTitle) => {
     try {
-      const response = await axios.post("http://localhost:4000/favorites/add", {
-        id: id,
-        title: favTitle,
-        favType: "comic",
-      });
+      const response = await axios.post(
+        // "http://localhost:4000/favorites/add",
+        "https://marvel-eld-back.herokuapp.com/favorites/add",
+        {
+          id: id,
+          title: favTitle,
+          favType: "comic",
+        }
+      );
       console.log("these data have been published ==>", response.data);
     } catch (error) {
       console.log("error in add favorite Comic ==>", error.message);

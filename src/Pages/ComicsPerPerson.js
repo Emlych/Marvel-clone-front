@@ -10,7 +10,10 @@ const ComicsPerPerson = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/comics/${id}`);
+        const response = await axios.get(
+          //`http://localhost:4000/comics/${id}`
+          `https://marvel-eld-back.herokuapp.com/comics/${id}`
+        );
         console.log("got a response :", response.data);
         setCharacterData(response.data);
         setIsLoading(false);

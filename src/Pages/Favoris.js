@@ -10,7 +10,8 @@ const Favoris = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/favorites/read"
+          // "http://localhost:4000/favorites/read"
+          "https://marvel-eld-back.herokuapp.com/favorites/read"
         );
         console.log("response from favorite ===>", response.data.favorites);
         setFavoriteData(response.data.favorites);
